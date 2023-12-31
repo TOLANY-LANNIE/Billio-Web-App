@@ -1,14 +1,14 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { Component,signal, computed} from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [CommonModule, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'Billio_Web_App';
+
+  userName:string =" John Doe"
+  collapsed = signal(false)
+
+  sidenavWidth = computed(()=> this.collapsed()?'65px':'250px')
 }
