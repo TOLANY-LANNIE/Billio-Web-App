@@ -1,5 +1,5 @@
 import { Component, signal, Input, computed } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { GreetingService } from '../../services/greetingService/greeting-service.service';
 
 export type MenuItem ={
   icon:string;
@@ -13,6 +13,14 @@ export type MenuItem ={
   styleUrl: './side-menu.component.scss'
 })
 export class SideMenuComponent {
+  dynamicGreeting: string;
+  currentHour = new Date;
+  
+  constructor(
+    private greetingService:GreetingService
+  ){
+    this.dynamicGreeting = this.greetingService.getDynamicGreeting( this.currentHour);
+  }
  /**
  * The following code defines a component class with properties and methods related to a collapsible sidenav.
  * It uses MobX signals to manage the state of the sidenavCollapsed property.

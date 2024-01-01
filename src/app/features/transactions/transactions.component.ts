@@ -35,7 +35,6 @@ const ELEMENT_DATA: Transaction[] = [
 export class TransactionsComponent implements AfterViewInit {
   displayedColumns: string[] = ['description', 'date', 'category', 'amount'];
   dataSource =new MatTableDataSource<Transaction>( ELEMENT_DATA);
-  clickedRows:Transaction;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 

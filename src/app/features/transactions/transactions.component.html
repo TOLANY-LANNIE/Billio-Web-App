@@ -17,9 +17,15 @@
                       </mat-form-field>
                   </div>
                 </div>
+                <button mat-flat-button color="primary" class="btn">
+                  <mat-icon>add</mat-icon>
+                  Add Transaction
+                </button>
               </div>
             </div>
           </div>
+
+          <!--Table and Paginator-->
           <div class="mat-elevation-z8">
             <table mat-table [dataSource]="dataSource">
 
@@ -49,13 +55,10 @@
         
               <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
               <tr 
-                mat-row 
-                (click)="clickedRows"
-                [class.row-is-clicked]="clickedRows"
-                *matRowDef="let row; columns: displayedColumns;"></tr>
+                mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
           </table>
 
-          <mat-paginator [pageSizeOptions]="[10, 20, 30]"
+          <mat-paginator [pageSizeOptions]="[10, 20, 40, 100]"
                                showFirstLastButtons
                                aria-label="Select page of transactions (Expenses)">
           </mat-paginator>

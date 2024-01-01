@@ -31,8 +31,8 @@ export interface Bill{
   status: string;
 }
 const ELEMENT_DATA:Bill[] =[
-  {description: 'Supersonic Internet subscription',due_date:new Date(2023, 0, 1, 9, 0, 0),category: 'Internet', amount:400, status:'pending'},
-  {description: ' FNB Phone subscription',due_date:new Date(2023, 0, 1, 9, 0, 0),category: 'Phone Bill', amount:10, status:'pending'},
-  {description: ' Showmax subscription',due_date:new Date(2023, 0, 1, 9, 0, 0),category: 'Phone Bill', amount:225, status:'pending'},
+  {description: 'Supersonic Internet subscription',due_date:new Date(2023, 0, 1, 9, 0, 0),category: 'Internet', amount:400, status:'Upcoming'},
+  {description: ' FNB Phone subscription',due_date:new Date(2023, 0, 1, 9, 0, 0),category: 'Phone Bill', amount:10, status:'Overdue'},
+  {description: ' Showmax subscription',due_date:new Date(2023, 0, 1, 9, 0, 0),category: 'TV Subscription', amount:225, status:'Paid'},
 ];
 
