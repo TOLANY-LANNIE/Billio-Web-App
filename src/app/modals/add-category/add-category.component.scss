@@ -1,0 +1,19 @@
+@import '../../../assets/common.scss';
+
+.header{
+    font-weight: bold;
+}
+.vertical-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.horizontal-form {
+    display: flex;
+    flex-direction:row;
+}
+.right-align-buttons {
+    justify-content: flex-end;
+    padding-right: 20px;
+}
+

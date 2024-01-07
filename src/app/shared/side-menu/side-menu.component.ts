@@ -52,7 +52,7 @@ export class SideMenuComponent {
     },
     {
       icon:'category',
-      label:'Categories',
+      label:'Budget',
       route:'categories'
     },
     {
@@ -66,14 +66,14 @@ export class SideMenuComponent {
       route:'calendar'
     },
     {
-      icon:'payment',
-      label:'Transactions',
-      route:'transactions'
-    },
-    {
       icon:'bar_chart',
       label:'Reports',
       route:'reports'
+    },
+    {
+      icon:'payment',
+      label:'Transactions',
+      route:'transactions'
     },
   ]);
 

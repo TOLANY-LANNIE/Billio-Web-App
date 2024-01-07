@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';;
+import { AppRoutingModule } from './app-routing.module';
+
 import { LoginComponent } from './features/login/login.component';
 import { SignUpComponent } from './features/sign-up/sign-up.component';
 import { BillsComponent } from './features/bills/bills.component';
@@ -11,12 +12,15 @@ import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { SideMenuComponent } from './shared/side-menu/side-menu.component';
 import { TransactionsComponent } from './features/transactions/transactions.component';
 import { LoaderComponent } from './features/loader/loader.component';
+import { AddBillComponent } from './modals/add-bill/add-bill.component';
+import { AddCategoryComponent } from './modals/add-category/add-category.component';
+import { AddTransactionComponent } from './modals/add-transaction/add-transaction.component';
+
 import { ReportsComponent } from './features/reports/reports.component';
 import { RouterModule} from '@angular/router';
 import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 import { GlobalInterceptor } from './interceptors/http.interceptor';
 import { CategoriesComponent } from './features/categories/categories.component';
-import { ContentComponent } from './features/content/content.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule} from '@angular/material/icon';
 import { MatButtonModule} from '@angular/material/button';
@@ -28,14 +32,16 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatBadgeModule} from '@angular/material/badge';
 import { MatInputModule} from '@angular/material/input';
 import { MatFormFieldModule} from '@angular/material/form-field';
-import {MatCardModule} from '@angular/material/card';
-import {MatTableModule} from '@angular/material/table';
-import {MatGridListModule} from '@angular/material/grid-list';
-import {FormsModule} from '@angular/forms';
+import { MatCardModule} from '@angular/material/card';
+import { MatTableModule} from '@angular/material/table';
+import { MatGridListModule} from '@angular/material/grid-list';
+import { FormsModule} from '@angular/forms';
 import { MatPaginatorModule} from '@angular/material/paginator';
 import { CalendarModule, MOMENT } from 'angular-calendar';
 import { SchedulerModule } from 'angular-calendar-scheduler';
-import moment from 'moment';
+import { MatDialogModule} from '@angular/material/dialog';
+import { MatSortModule } from '@angular/material/sort';
+import   moment from 'moment';
 
 @NgModule({
     declarations:[
@@ -43,14 +49,16 @@ import moment from 'moment';
         BillsComponent,
         CalendarComponent,
         CategoriesComponent,
-        ContentComponent,
         DashboardComponent,
         LoaderComponent,
         LoginComponent,
         ReportsComponent,
         SignUpComponent,
         TransactionsComponent,
-        SideMenuComponent
+        SideMenuComponent,
+        AddBillComponent,
+        AddCategoryComponent,
+        AddTransactionComponent
     ],
     imports:[
         BrowserModule,
@@ -74,6 +82,8 @@ import moment from 'moment';
         FormsModule,
         MatPaginatorModule,
         CalendarModule,
+        MatDialogModule,
+        MatSortModule,
         SchedulerModule.forRoot({ locale: 'en', headerDateFormat: 'daysRange' }),
     ],
     providers:[

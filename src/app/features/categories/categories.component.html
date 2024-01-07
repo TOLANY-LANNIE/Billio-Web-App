@@ -3,7 +3,7 @@
         <mat-card>
           <mat-card-content>
             <div class="card-header">
-              <h3>Category</h3>
+              <h3>Budget</h3>
             <!-- Search-bar -->
               <div class="parent-div">
                 <div class="search-dive">
@@ -17,20 +17,20 @@
                         </mat-form-field>
                     </div>
                   </div>
-                  <button mat-flat-button color="primary" class="btn">
+                  <button mat-flat-button color="primary" class="btn" (click)="openCategoryDialog()">
                     <mat-icon>add</mat-icon>
-                    Add Category
+                    Create Budget
                   </button>
                 </div>
               </div>
             </div>
             <div class="mat-elevation-z8">
               <!--Table-->
-              <table mat-table [dataSource]="dataSource">
+              <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)">
 
                 <!-- Name Column -->
                 <ng-container matColumnDef="name">
-                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name"> Name </th>
                   <td mat-cell *matCellDef="let element"> {{element.name}} </td>
                 </ng-container>
         
