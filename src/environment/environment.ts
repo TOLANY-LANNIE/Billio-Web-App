@@ -1,4 +1,7 @@
-/**
- * Base Url for the API
- */
-base_url:"http://localhost:5229/api/";
+export const environment = {
+    /**
+     * Base Url for the API
+     */
+    base_url:"http://localhost:5229/api/"
+}
+

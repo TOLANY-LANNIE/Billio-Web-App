@@ -1,10 +1,11 @@
-import {AfterViewInit, Component, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {LiveAnnouncer} from '@angular/cdk/a11y';
 import {MatTableDataSource} from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { AddCategoryComponent } from '../../modals/add-category/add-category.component';
 import {Sort, MatSort} from '@angular/material/sort';
+import { BudgetService } from '../../services/budgetService/budget.service';
 
 @Component({
   selector: 'app-categories',
@@ -14,11 +15,20 @@ import {Sort, MatSort} from '@angular/material/sort';
 export class CategoriesComponent implements AfterViewInit {
 
   displayedColumns: string[] = ['name', 'bugdeted_amount', 'remaining_amount'];
-  dataSource = new MatTableDataSource<Category>(ELEMENT_DATA);
+  dataSource:any;
 
-  constructor(private dialog:MatDialog, private _liveAnnouncer: LiveAnnouncer){
+  constructor(
+    private dialog:MatDialog,
+    private _liveAnnouncer: LiveAnnouncer,
+    private budgetService:BudgetService,
+    ){}
 
-  }
+    /**
+     * Initializes functions/data on page load
+     */
+    ngOnInit(): void {
+      this.retrieveBudget();
+    }
   
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -51,33 +61,32 @@ export class CategoriesComponent implements AfterViewInit {
     });
   }
 
-  /** Announce the change in sort state for assistive technology. */
+  /** 
+   * Announce the change in sort state for assistive technology.
+   */
   announceSortChange(sortState: Sort) {
-    // This example uses English messages. If your application supports
-    // multiple language, you would internationalize these strings.
-    // Furthermore, you can customize the message to add additional
-    // details about the values being sorted.
     if (sortState.direction) {
       this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
     } else {
       this._liveAnnouncer.announce('Sorting cleared');
     }
   }
+
+  /**
+   * Retrieves Budget from the API
+   */
+  retrieveBudget(){
+    this.budgetService.retrieveBudgets().subscribe({
+      next:(result)=>{
+        this.dataSource = new MatTableDataSource(result);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+       // console.log(result);
+      },
+      error: (error) => {
+        console.error("An error occurred, cannot retrieve Budget from API:", error);
+      }
+    })
+  }
   
 }
-
-export interface Category{
-  name:string;
-  budgeted_amount: number;
-  remaining_amount: number;
-}
-
-const ELEMENT_DATA:Category[] =[
-{name:'Transportation', budgeted_amount:1000,remaining_amount:1000},
-{name:'Electricity', budgeted_amount:400,remaining_amount:400},
-{name:'Internet Bill', budgeted_amount:400,remaining_amount:400},
-{name:'Groceries', budgeted_amount:1700,remaining_amount:1700},
-{name:'Savings', budgeted_amount:1000,remaining_amount:1000},
-{name:'Entertainment', budgeted_amount:1000,remaining_amount:1000},
-
-];
