@@ -41,6 +41,7 @@ import { CalendarModule, MOMENT } from 'angular-calendar';
 import { SchedulerModule } from 'angular-calendar-scheduler';
 import { MatDialogModule} from '@angular/material/dialog';
 import { MatSortModule } from '@angular/material/sort';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import   moment from 'moment';
 
 @NgModule({
@@ -84,6 +85,7 @@ import   moment from 'moment';
         CalendarModule,
         MatDialogModule,
         MatSortModule,
+        MatProgressSpinnerModule,
         SchedulerModule.forRoot({ locale: 'en', headerDateFormat: 'daysRange' }),
     ],
     providers:[
