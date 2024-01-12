@@ -14,6 +14,10 @@ export class BillsComponent implements AfterViewInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
+  /**
+   * This method is called after the component's view has been initialized.
+   * It is used to set the paginator for the dataSource, enabling pagination functionality.
+   */
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
