@@ -43,7 +43,9 @@ import { MatDialogModule} from '@angular/material/dialog';
 import { MatSortModule } from '@angular/material/sort';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import   moment from 'moment';
-
+import { environment } from '../environment/environment.development';
+import { AngularFireModule } from "@angular/fire/compat";
+import { AngularFireAuthModule } from "@angular/fire/compat/auth";
 @NgModule({
     declarations:[
         AppComponent,
@@ -62,6 +64,8 @@ import   moment from 'moment';
         AddTransactionComponent
     ],
     imports:[
+        AngularFireAuthModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig),
         BrowserModule,
         AppRoutingModule,
         RouterModule,
