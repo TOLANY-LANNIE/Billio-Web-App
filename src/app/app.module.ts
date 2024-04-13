@@ -15,6 +15,7 @@ import { LoaderComponent } from './features/loader/loader.component';
 import { AddBillComponent } from './modals/add-bill/add-bill.component';
 import { AddCategoryComponent } from './modals/add-category/add-category.component';
 import { AddTransactionComponent } from './modals/add-transaction/add-transaction.component';
+import { LoginLayoutComponent } from './layout/login-layout/login-layout.component';
 
 import { ReportsComponent } from './features/reports/reports.component';
 import { RouterModule} from '@angular/router';
@@ -46,6 +47,8 @@ import   moment from 'moment';
 import { environment } from '../environment/environment.development';
 import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFireAuthModule } from "@angular/fire/compat/auth";
+import { ReactiveFormsModule } from '@angular/forms';
+import { LoggerModule} from "ngx-logger";
 @NgModule({
     declarations:[
         AppComponent,
@@ -61,7 +64,8 @@ import { AngularFireAuthModule } from "@angular/fire/compat/auth";
         SideMenuComponent,
         AddBillComponent,
         AddCategoryComponent,
-        AddTransactionComponent
+        AddTransactionComponent,
+        LoginLayoutComponent,
     ],
     imports:[
         AngularFireAuthModule,
@@ -89,7 +93,9 @@ import { AngularFireAuthModule } from "@angular/fire/compat/auth";
         CalendarModule,
         MatDialogModule,
         MatSortModule,
+        ReactiveFormsModule,
         MatProgressSpinnerModule,
+        LoggerModule,
         SchedulerModule.forRoot({ locale: 'en', headerDateFormat: 'daysRange' }),
     ],
     providers:[

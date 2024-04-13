@@ -8,17 +8,24 @@ import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { TransactionsComponent } from './features/transactions/transactions.component';
 import { CategoriesComponent } from './features/categories/categories.component';
 import { ReportsComponent } from './features/reports/reports.component';
+import { LoginLayoutComponent } from './layout/login-layout/login-layout.component';
 
 const routes:Routes =[
-{path:'login', component:LoginComponent},
-{path:'sign-up', component:SignUpComponent},
+{
+    path: 'auth',
+    component: LoginLayoutComponent,
+    children: [
+        { path: 'login', component: LoginComponent },
+        {path:'sign-up', component:SignUpComponent}
+    ]
+},
 {path:'bills', component:BillsComponent},
 {path:'calendar', component:CalendarComponent},
 {path:'categories', component:CategoriesComponent},
 {path:'dashboard',component:DashboardComponent},
 {path:'transactions', component:TransactionsComponent},
 {path:'reports', component:ReportsComponent},
-{path:'', redirectTo:'/dashboard', pathMatch:'full'}
+{path:'', redirectTo:'/auth/login', pathMatch:'full'}
 ];
 
 @NgModule({

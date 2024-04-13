@@ -1,8 +1,11 @@
 <!--LoaderComponent-->
 <app-loader></app-loader>
 
-<!--HeaderComponent-->
-<mat-toolbar class="mat-elevation-z3" color="primary">
+
+
+<ng-container *ngIf="showHeaderAndSideMenu">
+  <!--HeaderComponent-->
+  <mat-toolbar class="mat-elevation-z3" color="primary">
     <button mat-icon-button (click)="collapsed.set(!collapsed())">
       <mat-icon>menu</mat-icon>
     </button> 
@@ -51,16 +54,17 @@
     </mat-menu>
 
   </mat-toolbar>
-  
-    
+  <mat-sidenav-container>
+      <!--SideNav-->
+      <mat-sidenav opened mode="side" [style.width]="sidenavWidth()">
+          <app-side-menu [collapsed]="collapsed()"/>
+      </mat-sidenav>
+      <!--Content-->
+      <mat-sidenav-content class="content" [style.margin-left]="sidenavWidth()">
+          <router-outlet></router-outlet>
+      </mat-sidenav-content>
+  </mat-sidenav-container>
+</ng-container>
 
-<mat-sidenav-container>
-    <!--SideNav-->
-    <mat-sidenav opened mode="side" [style.width]="sidenavWidth()">
-        <app-side-menu [collapsed]="collapsed()"/>
-    </mat-sidenav>
-    <!--Content-->
-    <mat-sidenav-content class="content" [style.margin-left]="sidenavWidth()">
-        <router-outlet></router-outlet>
-    </mat-sidenav-content>
-</mat-sidenav-container>
+<!-- Only display the router outlet without header and side menu for the login page -->
+<router-outlet *ngIf="!showHeaderAndSideMenu"></router-outlet>
