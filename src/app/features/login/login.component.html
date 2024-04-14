@@ -1,1 +1,23 @@
-<p>login works!</p>
+<div class="form-container mat-elevation-z5">
+  <h3>Login</h3>
+  <form [formGroup]="loginForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="Email" formControlName="email">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input matInput placeholder="Password" formControlName="password">
+    </mat-form-field>
+   <div class="center margin-top">
+      <button mat-flat-button color="primary" type="submit">Login</button>
+   </div>
+   <div class="center margin-top">
+    <button mat-flat-button color="primary" type="submit">Login</button>
+  </div>
+    <span>
+      New to our Platform? <a routerLink="auth/sign-up" class="sign-up-link">Sign Up</a>
+    </span>
+  </form>
+</div>
+  
