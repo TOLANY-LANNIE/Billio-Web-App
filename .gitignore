@@ -42,4 +42,4 @@ testem.log
 Thumbs.db
 
 # Ignoring the environment folder in src/app
-/src/app/environment/
+/src/environment/
