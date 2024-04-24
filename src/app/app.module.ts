@@ -46,9 +46,11 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import   moment from 'moment';
 import { environment } from '../environment/environment.development';
 import { AngularFireModule } from "@angular/fire/compat";
+import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { AngularFireAuthModule } from "@angular/fire/compat/auth";
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoggerModule} from "ngx-logger";
+
 @NgModule({
     declarations:[
         AppComponent,
@@ -104,7 +106,9 @@ import { LoggerModule} from "ngx-logger";
             useClass: GlobalInterceptor,
             multi: true,
         },
-        { provide: MOMENT, useValue: moment }
+        { provide: MOMENT, useValue: moment },
+        {provide: FIREBASE_OPTIONS, useValue: environment.firebaseConfig},
+        
     ],
     bootstrap:[AppComponent]
     
