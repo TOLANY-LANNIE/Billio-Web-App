@@ -14,12 +14,7 @@ export class AppComponent {
 
   constructor(private router: Router) {}
 
-  ngOnInit() {
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationStart) {
-        // Check if the route starts with '/auth', indicating it's the login page
-        this.showHeaderAndSideMenu = !event.url.startsWith('/auth');
-      }
-    });
+  checkInviteUrl(){
+    return window.location.href.indexOf('login') > -1;
   }
 }

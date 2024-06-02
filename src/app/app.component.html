@@ -1,56 +1,16 @@
 <!--LoaderComponent-->
 <app-loader></app-loader>
 
-
-
-<ng-container *ngIf="showHeaderAndSideMenu">
-  <!--HeaderComponent-->
+<ng-container *ngIf="!checkInviteUrl()">
+    <!--HeaderComponent-->
   <mat-toolbar class="mat-elevation-z3" color="primary">
     <button mat-icon-button (click)="collapsed.set(!collapsed())">
       <mat-icon>menu</mat-icon>
     </button> 
     <a class="navbar-brand" [routerLink]="['/dashboard']" matTooltip="Home">
-      <img src="./../../assets/img/billio-1.png" alt="">
+      <h2>Registry App</h2>
     </a>
     <span class="header-spacer"></span>
-    
-    <!--Search Icon-->
-    <button mat-icon-button aria-label="Icon-button with search icon">
-        <mat-icon>search</mat-icon>
-    </button>
-    <!--Notification Icon-->
-    <button mat-icon-button [matMenuTriggerFor]="notificationMenu">
-      <mat-icon matBadge="2" matBadgeColor="accent">notifications</mat-icon>
-    </button>
-    <mat-menu #notificationMenu="matMenu" xPosition="before" yPosition="above" [overlapTrigger]="false">
-  
-      <a mat-menu-item>
-        <span>You have new tasks</span>
-      </a>
-      <a mat-menu-item>
-        <span>You have a new message</span>
-      </a>
-  
-    </mat-menu>
-    <button mat-button [matMenuTriggerFor]="userMenu">
-        <div class="user-icon">
-          <img width="32" height="32" src="../../../assets/img/albert-dera-small.jpg" alt="">
-        </div>
-    </button>
-    <mat-menu #userMenu="matMenu" xPosition="before" yPosition="above" [overlapTrigger]="false">
-
-      <a mat-menu-item [routerLink]="['/account/profile']">
-        <mat-icon>person</mat-icon>
-        <span>Account</span>
-      </a>
-
-      <a mat-menu-item [routerLink]="['/auth/login']">
-        <mat-icon>exit_to_app</mat-icon>
-        <span>Log out</span>
-      </a>
-
-    </mat-menu>
-
   </mat-toolbar>
   <mat-sidenav-container>
       <!--SideNav-->
@@ -63,6 +23,5 @@
       </mat-sidenav-content>
   </mat-sidenav-container>
 </ng-container>
-
 <!-- Only display the router outlet without header and side menu for the login page -->
-<router-outlet *ngIf="!showHeaderAndSideMenu"></router-outlet>
+<router-outlet *ngIf="checkInviteUrl()"></router-outlet>

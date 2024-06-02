@@ -1,36 +1,33 @@
 <div class="container" fxLayout="row" fxLayoutAlign="space-between">
-    <div fxFlex="95%">
-        <mat-card>
-          <mat-card-content>
-            <div class="card-header">
-              <h3>Bills</h3>
-            <!-- Search-bar -->
-              <div class="parent-div">
-                <div class="search-dive">
-                  <div class="search-bar">
-                    <div class="search-container">
-                      <span class="search-icon">
-                      </span>
-                        <mat-form-field appearance="outline">
-                          <input (keyup)="applyFilter($event)" matInput placeholder="Search">
-                        </mat-form-field>
-                    </div>
+  <div fxFlex="1 1 auto">
+    <mat-card>
+      <mat-card-content>
+        <div class="card-header">
+          <h3>Bills</h3>
+          <div class="parent-div">
+              <div class="search-dive">
+                <div class="search-bar">
+                  <div class="search-container">
+                    <span class="search-icon">
+                    </span>
+                      <mat-form-field appearance="outline">
+                        <input (keyup)="applyFilter($event)" matInput placeholder="Search">
+                        <mat-icon matSuffix>search</mat-icon>
+                      </mat-form-field>
                   </div>
-                  <button mat-flat-button color="primary" class="btn">
-                    <mat-icon>add</mat-icon>
-                    Add Upcoming Bill
-                  </button>
                 </div>
+                <button mat-flat-button color="primary" class="btn">
+                  <mat-icon>add</mat-icon>
+                  Create Event
+                </button>
               </div>
             </div>
+        </div>
 
-            <div class="mat-elevation-z8">
-              <!--Table-->
-              
-              <!--Paginator-->
-          </div>        
-        </mat-card-content>
-      </mat-card>
-    </div>
+        <div class="mat-elevation-z8">
+          
+        </div>
+      </mat-card-content>
+    </mat-card>
   </div>
-
+</div>
