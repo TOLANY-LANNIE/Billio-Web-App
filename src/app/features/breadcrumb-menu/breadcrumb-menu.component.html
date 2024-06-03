@@ -1,0 +1,19 @@
+<!-- Dashboard Title Section -->
+<section class="dashboard-title-box">
+    <!-- Dashboard Title Content -->
+    <div class="dashboard-title">
+      <!-- Breadcrumb Navigation -->
+      <nav
+      style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3csvg width='7' height='10' viewBox='0 0 7 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1 0.5L5.5 5L1 9.5' stroke='%23B0BABF'/%3e%3c/svg%3e&#34;);"
+      aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <!-- Breadcrumb Items - Dynamic -->
+          <li *ngFor="let breadcrumb of routeList; let last = last" class="breadcrumb-item" [ngClass]="{active: last}">
+              <a *ngIf="!last; else lastBreadcrumb" [href]="breadcrumb.page_route" [routerLink]="[breadcrumb.page_route]">{{breadcrumb.page_name}}</a>
+              <ng-template #lastBreadcrumb>{{breadcrumb.page_name}}</ng-template>
+          </li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+  

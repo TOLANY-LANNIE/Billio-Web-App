@@ -1,14 +1,15 @@
-.container {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding-bottom: 20px;
-}
+@import 'common-varibles.scss';
 
 h3 {
 color: #332f2f;
 font-weight: bold;
 font-style: oblique;
 
+}
+
+.content{
+  padding: 8px;
+  transition: all 500ms ease-out;
 }
 
 mat-table {
@@ -18,7 +19,7 @@ width: 100%;
 .card-header {
 display: flex;
 justify-content: space-between;
-align-items: center;
+align-items: right;
 padding-bottom: 10px;
 }
 

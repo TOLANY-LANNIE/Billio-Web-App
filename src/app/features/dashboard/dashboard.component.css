@@ -1,0 +1,95 @@
+.container {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+}
+
+h3 {
+  color: #332f2f;
+  font-weight: bold;
+  font-style: oblique;
+}
+
+mat-table {
+  width: 100%;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+.parent-div {
+  display: flex;
+  align-items: center;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+.parent-div .search-dive .search-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.parent-div .search-dive .search-bar .search-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.parent-div .search-dive .btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+:host .legend small {
+  font-size: x-small;
+}
+
+h3 {
+  color: #333;
+}
+
+.dashboard-container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+mat-card {
+  align-items: center;
+  margin-bottom: 20px;
+  width: calc(33.33% - 10px);
+  margin-right: 5px;
+}
+
+table {
+  width: 100%;
+}
+
+.card-row {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 12px;
+}
+
+.dashed-box {
+  border: 2px dashed blue;
+  width: calc(33.33% - 16px);
+  box-sizing: border-box;
+}
+
+mat-grid-tile {
+  border: 2px solid #ddd;
+  box-sizing: border-box;
+  padding: 20px;
+}
+mat-grid-tile span {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  display: block;
+  margin-bottom: 10px;
+}/*# sourceMappingURL=dashboard.component.css.map */

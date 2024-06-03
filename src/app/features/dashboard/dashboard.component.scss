@@ -1,3 +1,4 @@
+@import '../../../assets/common.scss';
 :host {
     .legend {
       small {
@@ -13,7 +14,6 @@ h3 {
 .dashboard-container {
   width: 100%; 
   margin: 0 auto;
-  padding: 20px; 
 }
 mat-card{
     align-items: center;
