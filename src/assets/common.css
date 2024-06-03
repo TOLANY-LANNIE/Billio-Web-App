@@ -8,11 +8,10 @@
 h3 {
   color: #332f2f;
   font-weight: bold;
-  font-style: oblique;
 }
 
 .content {
-  padding: 8px;
+  padding: 16px;
   transition: all 500ms ease-out;
 }
 
