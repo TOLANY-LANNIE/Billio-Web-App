@@ -1,0 +1,128 @@
+:root {
+  --font-size-default: 1rem;
+  --font-famaly-default: "Poppins", sans-serif;
+  --bs-accordion-btn-icon: url("./img/arrow-down.svg");
+  --bs-accordion-btn-active-icon: url("./img/arrow-up.svg");
+}
+
+/* Add this at the end of your SCSS file */
+body, html {
+  overflow-y: hidden;
+}
+
+/* Styling for the main wrapper of the login page */
+.wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Styling for the main app cover, including responsiveness */
+.app-cover {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+}
+.app-cover .right_cover-box {
+  flex-grow: 1;
+}
+@media (min-width: 51.2rem) {
+  .app-cover {
+    flex-direction: row;
+  }
+}
+.app-cover h1 {
+  margin-bottom: 1.6rem;
+  font-size: 2rem;
+  font-weight: 500;
+}
+.app-cover .left_login {
+  width: 100%;
+  padding: 2rem 1rem; /* Adjusted padding */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+@media (min-width: 51.2rem) {
+  .app-cover .left_login {
+    width: 50%;
+    padding: 2rem; /* Adjusted padding */
+  }
+}
+.app-cover .form-container.login-box {
+  margin-top: 2rem; /* Adjust this value as needed */
+}
+.app-cover .right_cover-box {
+  width: 100%;
+  background-image: url("../../../assets/img/login-background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+@media (min-width: 38.4rem) {
+  .app-cover .right_cover-box {
+    height: 11.5rem;
+  }
+}
+@media (min-width: 51.2rem) {
+  .app-cover .right_cover-box {
+    height: 100%;
+    width: 50%;
+  }
+}
+
+/* Styling for the login form */
+.login-form {
+  width: 23.33rem;
+}
+
+/* Styling for the row containing the Forgot Password link */
+.forgot-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Styling for the top header */
+.header-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0.87rem 2.87rem 0;
+}
+@media (min-width: 38.4rem) {
+  .header-top {
+    padding: 2.87rem 2.87rem 0;
+  }
+}
+.header-top img {
+  max-width: 100%;
+}
+
+/* Styling for error messages */
+.error-message {
+  color: red;
+}
+
+.emailcontainer {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.change-label {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: blue;
+  cursor: pointer;
+}/*# sourceMappingURL=login.component.css.map */

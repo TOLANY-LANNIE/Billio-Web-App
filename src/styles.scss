@@ -38,26 +38,3 @@ $Billio_Web_App-theme: mat.define-light-theme((
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-.form-container{
-  display: block;
-  max-width: 500px;
-  margin: auto;
-  border: #283593;
-  padding:48px ;
-  border-radius: 16px;
-} 
-
-.form-container mat-form-field{
-  padding-top: 10px;
-  width: 100%;
-}
-.center{
-  display: flex;
-  justify-content: center;
-}
-.margin-top{
-  margin: 16px;
-}
-.text-center{
-  text-align: center;
-}

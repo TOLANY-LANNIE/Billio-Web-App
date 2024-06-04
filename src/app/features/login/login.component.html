@@ -1,36 +1,34 @@
-<div class="form-container mat-elevation-z5">
-  <h3>Login</h3>
-  <form [formGroup]="loginForm">
-    <mat-form-field appearance="outline">
-      <mat-label>Email</mat-label>
-      <input matInput placeholder="Email" formControlName="email">
-    </mat-form-field>
-    <mat-form-field appearance="outline">
-      <mat-label>Password</mat-label>
-      <input matInput placeholder="Password" formControlName="password">
-    </mat-form-field>
-   <div class="center margin-top">
-      <button mat-flat-button color="primary" type="submit">Login</button>
-   </div>
-   <div id="g_id_onload"
-     data-client_id="665872029748-ti438nrce2bbb5423jib26bt2dt7htj2.apps.googleusercontent.com"
-     data-context="signin"
-     data-ux_mode="popup"
-     data-login_uri="http://localhost:4200/auth/login"
-     data-itp_support="true">
-    </div>
+<div class="container-fluid">
+  <div class="row no-gutter">
+      <!-- The image half -->
+      <div class="col-md-6 d-none d-md-flex bg-image"></div>
 
-    <div class="g_id_signin"
-        data-type="standard"
-        data-shape="rectangular"
-        data-theme="outline"
-        data-text="signin_with"
-        data-size="large"
-        data-logo_alignment="left">
-    </div>
-    <span>
-      New to our Platform? <a routerLink="auth/sign-up" class="sign-up-link">Sign Up</a>
-    </span>
-  </form>
+      <!-- The content half -->
+      <div class="col-md-6 bg-light">
+          <div class="login d-flex align-items-center py-5">
+              <!-- Demo content-->
+              <div class="container">
+                  <div class="row">
+                      <div class="col-lg-10 col-xl-7 mx-auto">
+                          <h3 class="display-4">Billio App</h3>
+                          <p class="text-muted mb-4">Keep tracking of your expenses and spend wisely</p>
+                          <form>
+                              <div class="form-group mb-3">
+                                  <input id="inputEmail" type="email" placeholder="Email address" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4">
+                              </div>
+                              <div class="form-group mb-3">
+                                  <input id="inputPassword" type="password" placeholder="Password" required="" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary">
+                              </div>
+                              <div class="custom-control custom-checkbox mb-3">
+                                  <input id="customCheck1" type="checkbox" checked class="custom-control-input">
+                                  <label for="customCheck1" class="custom-control-label">Remember password</label>
+                              </div>
+                              <button type="submit" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">Sign in</button>
+                          </form>
+                      </div>
+                  </div>
+              </div><!-- End -->
+          </div>
+      </div><!-- End -->
+  </div>
 </div>
-  
