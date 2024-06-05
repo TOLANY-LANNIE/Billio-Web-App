@@ -7,7 +7,7 @@
         <!-- Header with the logo -->
         <div class="header-top">
           <div class="logo-container">
-            <img id="eblocks-logo" src="../../../assets/img/billio-transparent.png" alt="logo">
+            <img id="logo" src="../../../assets/img/billio-transparent.png" alt="logo">
           </div>
         </div>
         <div class="login d-flex align-items-center py-5">
@@ -17,19 +17,28 @@
               <div class="col-lg-10 col-xl-7 mx-auto">
                 <h3 class="display-4">Billio App</h3>
                 <p class="text-muted mb-4">Keep tracking of your expenses and spend wisely</p>
-                <form>
-                  <div class="form-group mb-3">
-                    <input id="inputEmail" type="email" placeholder="Email address" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4">
+                <!-- Angular Form Group -->
+                <div class="form-container login-box">
+                <form [formGroup]="loginForm" class="mb-4">
+                  <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="Email" formControlName="email">
+                  </mat-form-field>
+                  <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Password</mat-label>
+                    <input matInput placeholder="Password" formControlName="password">
+                  </mat-form-field>
+                  <div class="mb-3 forgot-row">
+                    <a href="#">Forgot Password?</a>
+                    <button mat-flat-button color="primary" type="submit" [disabled]="!loginForm.valid">Sign In</button>
                   </div>
-                  <div class="form-group mb-3">
-                    <input id="inputPassword" type="password" placeholder="Password" required="" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary">
+                  <div class="divider-row mb-3">&nbsp;</div>
+                  <div class="sign-up">
+                    <p>Don’t you have an account? <a href="#"> Sign Up</a></p>
                   </div>
-                  <div class="custom-control custom-checkbox mb-3">
-                    <input id="customCheck1" type="checkbox" checked class="custom-control-input">
-                    <label for="customCheck1" class="custom-control-label">Remember password</label>
-                  </div>
-                  <button type="submit" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">Sign in</button>
                 </form>
+              </div>
+
               </div>
             </div>
           </div><!-- End -->

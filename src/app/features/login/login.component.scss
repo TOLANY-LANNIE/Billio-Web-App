@@ -10,6 +10,7 @@ body {
   width: 100%;
   height: 100vh; /* Make the container full height of the viewport */
   overflow: hidden; /* Hide overflowing content */
+  background-color: #ffffff;
 }
 
 /* Add any additional styles you need */
@@ -19,7 +20,7 @@ body {
 }
 
 .bg-image {
-  background-image: url('../../../assets/img/login-background.jpg');
+  background-image: url('../../../assets/img/login-bg.svg');
   background-size: cover;
   background-position: center center;
 }
@@ -41,4 +42,15 @@ body {
 
 .logo-container img {
   max-width: 100%; /* Make sure the logo image doesn't exceed its container width */
+}
+
+/* Styling for the row containing the Forgot Password link */
+.forgot-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.full-width {
+  width: 100%;
 }
