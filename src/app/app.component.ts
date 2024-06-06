@@ -12,7 +12,6 @@ export class AppComponent {
   userName: string;
   userProfile: string;
   collapsed = signal(false);
-  showHeaderAndSideMenu: boolean = true;
   sidenavWidth = computed(() => this.collapsed() ? '65px' : '250px');
 
   constructor(

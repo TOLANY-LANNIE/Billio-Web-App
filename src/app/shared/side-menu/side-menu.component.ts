@@ -1,6 +1,6 @@
 import { Component, signal, Input, computed, inject } from '@angular/core';
 import { GreetingService } from '../../services/greetingService/greeting-service.service';
-import { AuthService } from '../../services/auth/auth.service';
+
 export type MenuItem ={
   icon:string;
   label:string;
@@ -15,7 +15,6 @@ export type MenuItem ={
 export class SideMenuComponent {
   dynamicGreeting: string;
   currentHour = new Date;
-  auth=inject(AuthService)
   userName: string;
   userProfile: string;
   

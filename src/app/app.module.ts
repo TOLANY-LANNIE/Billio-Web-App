@@ -44,6 +44,7 @@ import { MatDialogModule} from '@angular/material/dialog';
 import { MatSortModule } from '@angular/material/sort';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatDividerModule} from '@angular/material/divider';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import   moment from 'moment';
 import { environment } from '../environment/environment.development';
@@ -98,6 +99,7 @@ import { LoggerModule} from "ngx-logger";
         MatDialogModule,
         MatSortModule,
         MatDividerModule,
+        MatTooltipModule,
 
         ReactiveFormsModule,
         MatProgressSpinnerModule,
