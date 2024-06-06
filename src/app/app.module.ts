@@ -15,8 +15,6 @@ import { LoaderComponent } from './features/loader/loader.component';
 import { AddBillComponent } from './modals/add-bill/add-bill.component';
 import { AddCategoryComponent } from './modals/add-category/add-category.component';
 import { AddTransactionComponent } from './modals/add-transaction/add-transaction.component';
-import { LoginLayoutComponent } from './layout/login-layout/login-layout.component';
-
 import { ReportsComponent } from './features/reports/reports.component';
 import { RouterModule} from '@angular/router';
 import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -47,10 +45,11 @@ import {MatDividerModule} from '@angular/material/divider';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
 import   moment from 'moment';
-import { environment } from '../environment/environment.development';
-import { AngularFireModule } from "@angular/fire/compat";
-import { FIREBASE_OPTIONS } from '@angular/fire/compat';
-import { AngularFireAuthModule } from "@angular/fire/compat/auth";
+import { environment } from '../environment/environment';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { getStorage, provideStorage } from '@angular/fire/storage';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoggerModule} from "ngx-logger";
 
@@ -70,11 +69,8 @@ import { LoggerModule} from "ngx-logger";
         AddBillComponent,
         AddCategoryComponent,
         AddTransactionComponent,
-        LoginLayoutComponent,
     ],
     imports:[
-        AngularFireAuthModule,
-        AngularFireModule.initializeApp(environment.firebaseConfig),
         BrowserModule,
         AppRoutingModule,
         RouterModule,
@@ -101,10 +97,18 @@ import { LoggerModule} from "ngx-logger";
         MatDividerModule,
         MatTooltipModule,
 
+        provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+        provideAuth(() => getAuth()),
+        provideFirestore(() => getFirestore()),
+        provideStorage(() => getStorage()),
         ReactiveFormsModule,
         MatProgressSpinnerModule,
         LoggerModule,
         SchedulerModule.forRoot({ locale: 'en', headerDateFormat: 'daysRange' }),
+
+        
+
+        
     ],
     providers:[
         {
@@ -113,8 +117,6 @@ import { LoggerModule} from "ngx-logger";
             multi: true,
         },
         { provide: MOMENT, useValue: moment },
-        {provide: FIREBASE_OPTIONS, useValue: environment.firebaseConfig},
-        
     ],
     bootstrap:[AppComponent]
     

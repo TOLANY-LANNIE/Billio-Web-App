@@ -76,17 +76,6 @@ export class CategoriesComponent implements AfterViewInit {
    * Retrieves Budget from the API
    */
   retrieveBudget(){
-    this.budgetService.retrieveBudgets().subscribe({
-      next:(result)=>{
-        this.dataSource = new MatTableDataSource(result);
-        this.dataSource.paginator = this.paginator;
-        this.dataSource.sort = this.sort;
-       // console.log(result);
-      },
-      error: (error) => {
-        console.error("An error occurred, cannot retrieve Budget from API:", error);
-      }
-    })
   }
   
 }

@@ -8,15 +8,13 @@ import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { TransactionsComponent } from './features/transactions/transactions.component';
 import { CategoriesComponent } from './features/categories/categories.component';
 import { ReportsComponent } from './features/reports/reports.component';
-import { LoginLayoutComponent } from './layout/login-layout/login-layout.component';
 
 const routes:Routes =[
 {
     path: 'auth',
-    component: LoginLayoutComponent,
+    component: LoginComponent,
     children: [
         { path: 'login', component: LoginComponent },
-        {path:'sign-up', component:SignUpComponent}
     ]
 },
 {path:'bills', component:BillsComponent},

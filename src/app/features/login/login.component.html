@@ -18,7 +18,7 @@
                 <h3 class="display-4">Billio App</h3>
                 <p class="text-muted mb-4">Keep tracking of your expenses and spend wisely</p>
                 <!--Google Sign in -->
-                <div id="google-login" class="full-width">
+                <div id="google-login" class="full-width"uu>
                 </div>
 
                 <!-- Divider-->
@@ -29,18 +29,29 @@
                 </div>
                 <!-- Angular Form Group -->
                 <div class="form-container login-box">
-                <form [formGroup]="loginForm" class="mb-4">
+                <form [formGroup]="loginForm" class="mb-4" (ngSubmit)="onSubmit()">
+                  <!--Email Field-->
                   <mat-form-field appearance="outline" class="full-width">
                     <mat-label>Email</mat-label>
-                    <input matInput formControlName="email">
+                    <input matInput 
+                      formControlName="email"
+                      [(ngModel)]="email">
+                    <mat-error *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched">Email is required</mat-error>
+                    <mat-error *ngIf="loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched">Invalid email</mat-error>
                   </mat-form-field>
+
+                  <!--Password Field-->
                   <mat-form-field appearance="outline" class="full-width">
                     <mat-label>Password</mat-label>
-                    <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+                    <input matInput 
+                      [type]="hide ? 'password' : 'text'" 
+                      formControlName="password">
+                    <mat-error *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched">Password is required</mat-error>
                     <button mat-icon-button matSuffix (click)="clickEvent($event)" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                       <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
                   </mat-form-field>
+
                   <div class="mb-3 forgot-row">
                     <a href="#">Forgot Password?</a>
                     <button mat-flat-button color="primary" type="submit" [disabled]="!loginForm.valid">Sign In</button>
@@ -54,9 +65,11 @@
 
               </div>
             </div>
-          </div><!-- End -->
+          </div>
+          <!-- End -->
         </div>
-      </div><!-- End -->
+      </div>
+      <!-- End -->
     </div>
   </div>
   
