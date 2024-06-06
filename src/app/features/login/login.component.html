@@ -17,23 +17,36 @@
               <div class="col-lg-10 col-xl-7 mx-auto">
                 <h3 class="display-4">Billio App</h3>
                 <p class="text-muted mb-4">Keep tracking of your expenses and spend wisely</p>
+                <!--Google Sign in -->
+                <div id="google-login" class="full-width">
+                </div>
+
+                <!-- Divider-->
+                <div class="separator-container">
+                  <hr class="Panel-separator Panel-separator--left">
+                    or
+                  <hr class="Panel-separator Panel-separator--right">
+                </div>
                 <!-- Angular Form Group -->
                 <div class="form-container login-box">
                 <form [formGroup]="loginForm" class="mb-4">
                   <mat-form-field appearance="outline" class="full-width">
                     <mat-label>Email</mat-label>
-                    <input matInput placeholder="Email" formControlName="email">
+                    <input matInput formControlName="email">
                   </mat-form-field>
                   <mat-form-field appearance="outline" class="full-width">
                     <mat-label>Password</mat-label>
-                    <input matInput placeholder="Password" formControlName="password">
+                    <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+                    <button mat-icon-button matSuffix (click)="clickEvent($event)" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
                   </mat-form-field>
                   <div class="mb-3 forgot-row">
                     <a href="#">Forgot Password?</a>
                     <button mat-flat-button color="primary" type="submit" [disabled]="!loginForm.valid">Sign In</button>
                   </div>
                   <div class="divider-row mb-3">&nbsp;</div>
-                  <div class="sign-up">
+                  <div class="mb-3 forgot-row">
                     <p>Don’t you have an account? <a href="#"> Sign Up</a></p>
                   </div>
                 </form>

@@ -43,6 +43,8 @@ import { SchedulerModule } from 'angular-calendar-scheduler';
 import { MatDialogModule} from '@angular/material/dialog';
 import { MatSortModule } from '@angular/material/sort';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatDividerModule} from '@angular/material/divider';
+
 import   moment from 'moment';
 import { environment } from '../environment/environment.development';
 import { AngularFireModule } from "@angular/fire/compat";
@@ -95,6 +97,8 @@ import { LoggerModule} from "ngx-logger";
         CalendarModule,
         MatDialogModule,
         MatSortModule,
+        MatDividerModule,
+
         ReactiveFormsModule,
         MatProgressSpinnerModule,
         LoggerModule,

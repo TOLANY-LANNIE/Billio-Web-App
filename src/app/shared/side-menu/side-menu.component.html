@@ -1,9 +1,9 @@
 <!--Side nav header-->
 <div class="side-nav-header">
-  <img [width]="profilePicSize()" [height]="profilePicSize()" src="../../../assets/img/albert-dera-small.jpg"/>
+  <img [width]="profilePicSize()" [height]="profilePicSize()" [src]="userProfile" alt="Profile"/>
   <div class="header-text" [class.hide-header-text]="sidenavCollapsed()">
     <h2>{{dynamicGreeting}}</h2>
-    <p>John Doe</p>
+    <p>{{ capitalizeWords(userName) }}</p>
   </div>
 </div> 
 <!--Side nav menu-->

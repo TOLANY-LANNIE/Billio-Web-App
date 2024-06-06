@@ -32,7 +32,7 @@
     </mat-menu>
     <button mat-button [matMenuTriggerFor]="userMenu">
         <div class="user-icon">
-          <img width="32" height="32" src="../../../assets/img/albert-dera-small.jpg" alt="">
+          <img width="32" height="32" [src]="userProfile" alt="User Profile">
         </div>
     </button>
     <mat-menu #userMenu="matMenu" xPosition="before" yPosition="above" [overlapTrigger]="false">
@@ -42,7 +42,7 @@
         <span>Account</span>
       </a>
 
-      <a mat-menu-item [routerLink]="['/auth/login']">
+      <a mat-menu-item (click)="signOut()">
         <mat-icon>exit_to_app</mat-icon>
         <span>Log out</span>
       </a>

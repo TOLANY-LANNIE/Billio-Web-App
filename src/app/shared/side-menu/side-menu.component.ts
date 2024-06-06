@@ -1,6 +1,6 @@
-import { Component, signal, Input, computed } from '@angular/core';
+import { Component, signal, Input, computed, inject } from '@angular/core';
 import { GreetingService } from '../../services/greetingService/greeting-service.service';
-
+import { AuthService } from '../../services/auth/auth.service';
 export type MenuItem ={
   icon:string;
   label:string;
@@ -15,11 +15,23 @@ export type MenuItem ={
 export class SideMenuComponent {
   dynamicGreeting: string;
   currentHour = new Date;
+  auth=inject(AuthService)
+  userName: string;
+  userProfile: string;
   
   constructor(
     private greetingService:GreetingService
   ){
     this.dynamicGreeting = this.greetingService.getDynamicGreeting( this.currentHour);
+    const user = sessionStorage.getItem('user');
+    if (user) {
+      const userParsed = JSON.parse(user);
+      this.userName = userParsed.name;
+      this.userProfile = userParsed.picture;
+    } else {
+      this.userName = 'defaultUserName';  // Provide a default value or handle accordingly
+      this.userProfile = 'defaultUserProfile';  // Provide a default value or handle accordingly
+    }
   }
  /**
  * The following code defines a component class with properties and methods related to a collapsible sidenav.
@@ -78,4 +90,8 @@ export class SideMenuComponent {
   ]);
 
   profilePicSize = computed(()=>this.sidenavCollapsed()?'32':'100')
+
+  capitalizeWords(str: string): string {
+    return str.replace(/\b\w/g, char => char.toUpperCase());
+  }
 }

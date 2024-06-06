@@ -49,8 +49,32 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-weight: bold;
 }
-
+/*Stretch the mat-form-field to fill the available space*/
 .full-width {
   width: 100%;
+}
+
+/* Styling for the divider section */
+.separator-container {
+  display: flex; /* Enable flexbox */
+  justify-content: center; /* Center horizontally */
+}
+.Panel-separator--left {
+  margin-right: .5rem;
+}
+.Panel-separator--right {
+  margin-left: .5rem;
+}
+.Panel-separator {
+  display: inline-block;
+  margin-top: .75rem;
+  border: 0;
+    border-top-width: 0px;
+    border-top-style: none;
+    border-top-color: currentcolor;
+  border-top: 1px solid #d5d9db;
+  width: 40%;
+  vertical-align: text-top;
 }
