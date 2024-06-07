@@ -43,6 +43,7 @@ import { MatSortModule } from '@angular/material/sort';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatDividerModule} from '@angular/material/divider';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import   moment from 'moment';
 import { environment } from '../environment/environment';
@@ -96,6 +97,7 @@ import { LoggerModule} from "ngx-logger";
         MatSortModule,
         MatDividerModule,
         MatTooltipModule,
+        MatSnackBarModule,
 
         provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
         provideAuth(() => getAuth()),

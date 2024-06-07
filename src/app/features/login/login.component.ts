@@ -3,6 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { environment } from '../../../environment/environment';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { AuthService } from '../../services/auth/auth.service';
+import { tap, catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +21,9 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar,
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -56,6 +62,34 @@ export class LoginComponent implements OnInit {
     this.password = this.loginForm.get('password')?.value;
 
     // Handle your login logic here
+    this.authService.login(this.email, this.password)
+      .pipe(
+        tap(() => {
+          this.snackBar.open('Successfully logged in', 'Close', {
+            duration: 5000,
+            panelClass: ['success'],
+          });
+        }),
+        catchError((error) => {
+          this.snackBar.open('Failed to login', undefined, {
+            duration: 5000,
+            panelClass: ['error'],
+          });
+          return throwError(() => error);
+        })
+      )
+      .subscribe({
+        next: () => {
+          this.router.navigate(['/dashboard']);
+        },
+        error: (error) => {
+          /* Show an error snackbar: */
+          this.snackBar.open('Failed to login', undefined, {
+            duration: 5000,
+            panelClass: [ 'error'],
+          });
+        }
+      });
   }
 
   clickEvent(event: MouseEvent): void {
