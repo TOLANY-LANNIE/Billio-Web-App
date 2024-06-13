@@ -17,6 +17,7 @@
     #rla="routerLinkActive"
     [activated]="rla.isActive"
     [matTooltip]="sidenavCollapsed() ? item.label : ''" 
+    matTooltipPosition="right"
     [matTooltipDisabled]="!sidenavCollapsed()"
   >
     <mat-icon [fontSet]="rla.isActive ? 'material-icons' : 'material-icons-outlined'" matListItemIcon>{{item.icon}}</mat-icon>
